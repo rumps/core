@@ -18,13 +18,18 @@ module.exports = function() {
     envify: 'transform-loader/cacheable?envify',
     traceur: 'traceur-loader?' + qs.stringify(configs.main.traceur)
   };
-  var sourceDir = path.join(configs.main.paths.source.root,
-                            configs.main.paths.source.scripts);
-  var source = path.join(sourceDir, configs.main.globs.scripts);
+  var sourceDir = path.resolve(path.join(configs.main.paths.source.root,
+                                         configs.main.paths.source.scripts));
+  var source = path.join(configs.main.paths.source.root,
+                         configs.main.paths.source.scripts,
+                         configs.main.globs.scripts);
   var destination = path.join(configs.main.paths.destination.root,
                               configs.main.paths.destination.scripts);
   var options = {
-    entry: glob.sync(source).reduce(function(obj, filename) {
+    entry: glob.sync(source).map(function(filename) {
+      return path.basename(filename);
+    })
+    .reduce(function(obj, filename) {
       obj[path.basename(filename, path.extname(filename))] = filename;
       return obj;
     }, {}),

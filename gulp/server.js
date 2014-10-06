@@ -13,7 +13,7 @@ gulp.task('rump:server', ['rump:watch'], function(callback) {
     online: false,
     port: configs.main.server.port,
     server: {
-      baseDir: configs.main.paths.destination.root;
+      baseDir: configs.main.paths.destination.root
     }
   };
   if(development) {

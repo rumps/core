@@ -17,7 +17,7 @@ gulp.task('rump:server', ['rump:watch'], function(callback) {
     }
   };
   if(development) {
-    options.files = path.join(options.server.baseDir,
+    options.files = path.join(configs.main.paths.destination.root,
                               configs.main.globs.watch.server);
   }
 

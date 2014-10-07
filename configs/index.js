@@ -1,13 +1,19 @@
 'use strict';
 
-exports.rebuild = function(overrides) {
-  var main = require('./main');
-  var karma = require('./karma');
-  var webpack = require('./webpack');
+var merge = require('merge');
 
-  exports.main = main(overrides);
-  exports.webpack = webpack();
-  exports.karma = karma();
+exports.rebuild = function(overrides) {
+  exports.main = merge.recursive({
+    environment: (process.env.NODE_ENV || 'development').trim(),
+    paths: {
+      source: {
+        root: 'src'
+      },
+      destination: {
+        root: 'dist'
+      }
+    }
+  }, overrides);
 };
 
 exports.rebuild();

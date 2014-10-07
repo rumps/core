@@ -10,17 +10,14 @@ rump.addGulpTasks = function() {
 
 rump.reconfigure = function(options) {
   configs.rebuild(options);
-  rump.emit('update', rump.configs);
+  rump.emit('update:main');
 };
 
 rump.configs = {
   get main() {
     return configs.main;
   },
-  get webpack() {
-    return configs.webpack;
-  },
-  get karma() {
-    return configs.karma;
+  get watch() {
+    return configs.watch;
   }
 };

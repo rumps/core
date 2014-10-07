@@ -2,39 +2,21 @@
   "name": "rump",
   "description": "Opinionated flow for assembling client assets",
   "author": "Juan Placencia",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "license": "MIT",
-  "homepage": "https://github.com/jupl/rump",
+  "homepage": "https://github.com/rumps/rump",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jupl/rump"
+    "url": "https://github.com/rumps/rump"
   },
   "main": "./index.js",
   "dependencies": {
-    "chalk": "~0.5.1",
     "del": "~0.1.3",
-    "glob": "^4.0.6",
     "merge": "^1.2.0",
-    "qs": "^2.2.4",
     "require-all": "0.0.8",
-    "rework-plugin-at2x": "^1.0.2",
-    "gulp-changed": "^1.0.0",
-    "gulp-clone": "^1.0.0",
-    "gulp-csso": "~0.2.9",
-    "gulp-filter": "^1.0.2",
-    "gulp-gm": "0.0.7",
-    "gulp-myth": "^1.0.1",
-    "gulp-imagemin": "^1.0.1",
-    "gulp-plumber": "~0.6.6",
-    "gulp-rename": "^1.2.0",
-    "gulp-rework": "^1.0.2",
     "gulp-util": "^3.0.1"
   },
   "peerDependencies": {
-    "envify": "^3.0.0",
-    "gulp": "^3.8.8",
-    "webpack": "^1.4.4",
-    "traceur-loader": "~0.5.2",
-    "transform-loader": "~0.2.1"
+    "gulp": "^3.8.8"
   }
 }

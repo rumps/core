@@ -2,7 +2,7 @@
   "name": "rump",
   "description": "Opinionated flow for assembling client assets",
   "author": "Juan Placencia",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "homepage": "https://github.com/rumps/rump",
   "repository": {

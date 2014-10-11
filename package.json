@@ -11,10 +11,10 @@
   },
   "main": "./index.js",
   "dependencies": {
+    "chalk": "^0.5.1",
     "del": "^0.1.3",
     "extend": "^2.0.0",
-    "require-all": "^0.0.8",
-    "gulp-util": "^3.0.1"
+    "require-all": "^0.0.8"
   },
   "peerDependencies": {
     "gulp": "^3.8.8"

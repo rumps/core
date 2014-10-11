@@ -5,6 +5,7 @@ var gulp = require('gulp');
 var configs = require('../configs');
 
 gulp.task('rump:info:core', function() {
+  console.log();
   console.log(chalk.magenta('--- Core'));
   console.log('Environment is', chalk.green(configs.main.environment));
   console.log();

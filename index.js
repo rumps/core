@@ -31,7 +31,7 @@ rump.addGulpTasks = function() {
   return rump;
 };
 
-rump.reconfigure = function(options) {
+rump.configure = function(options) {
   configs.rebuild(options);
   rump.emit('update:main');
   return rump;

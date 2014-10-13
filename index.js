@@ -12,11 +12,16 @@ rump.autoload = function() {
                           Object.keys(pkg.peerDependencies || {}));
 
   modules.filter(function(mod) {
-    return /^rump-/.test(mod);
+    if(/^rump-/.test(mod)) {
+      try {
+        require.resolve(mod);
+        return true;
+      }
+      catch(e) {}
+    }
+    return false;
   })
-  .forEach(function(mod) {
-    try { require(mod); } catch(e) {}
-  });
+  .forEach(require);
 
   return rump;
 };

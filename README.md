@@ -1,2 +1,2 @@
-# Rump <sub><small>0.2.0</small></sub>
+# Rump <sub><small><sub>0.2.0</sub></small></sub>
 [WIP] Opionated workflow for packaging client-side assets with support for Gulp.

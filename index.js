@@ -6,7 +6,7 @@ var configs = require('./configs');
 var rump = module.exports = new events.EventEmitter();
 
 rump.autoload = function() {
-  var pkg = require(path.resolve('package.json'));
+  var pkg = require(path.resolve('package'));
   var modules = [].concat(Object.keys(pkg.dependencies || {}),
                           Object.keys(pkg.devDependencies || {}),
                           Object.keys(pkg.peerDependencies || {}));

@@ -14,15 +14,19 @@ rump.autoload = function() {
   modules.forEach(function(mod) {
     try { require(mod); } catch(e) {}
   });
+
+  return rump;
 };
 
 rump.addGulpTasks = function() {
   require('./gulp');
+  return rump;
 };
 
 rump.reconfigure = function(options) {
   configs.rebuild(options);
   rump.emit('update:main');
+  return rump;
 };
 
 rump.configs = {

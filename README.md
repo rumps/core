@@ -98,8 +98,8 @@ builds.
 #### `options.paths.source.root` (`'src'`)
 This is the base directory where source code and items are housed for asset
 builds. Rump modules will typically reference files/directories relative to
-this path for builds. You can specify an absolute path or other relative paths.
-(`'../../source'`)
+this path for builds. You can specify an absolute path, use the current
+directory, (`''`) or other relative paths. (`'../../source'`)
 
 #### `options.paths.destination.root` (`'dist'`)
 This is the base directory where assets will be built to. This should be

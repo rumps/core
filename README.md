@@ -4,6 +4,7 @@
 ![Dependencies](http://img.shields.io/david/rumps/rump.svg?style=flat-square)
 ![Peer Dependencies](http://img.shields.io/david/peer/rumps/rump.svg?style=flat-square)
 
+
 ## About
 Rump and its related modules together make a semi-opinionated workflow for
 assembling client-side assets, leveraging [Gulp](http://gulpjs.com/) tasks.
@@ -65,13 +66,20 @@ destination, see `rump.configure()` below. The following tasks are included:
 - `rump:watch` will build all assets once from source to destination, then
   monitor for changes and update destination as needed. Rump modules will add
   to this task. (scripts, styles, etc.)
+- `rump:watch:setup` is used to set up for tasks that build continuously, such as
+  `rump:watch` and `rump:test:watch`. This is typically used internally and has no
+  effect by itself.
 - `rump:clean` will clean the contents of destination. This is invoked when
   running the build or watch task. The destination should be considered
   volatile since files on source may be removed.
 - `rump:info` will display information on this and other Rump modules in a
   readable format.
-- `rump:test` will run tests. Rump modules will add to this task. (scripts,
-  etc.)
+- `rump:info:core` will display information on the core module, including the
+  current environment set.
+- `rump:test` will run all tests once. Rump modules will add to this task.
+  (scripts, etc.)
+- `rump:test:watch` will run tests continuously, useful for things like TDD.
+  Rump modules will add to this task. (scripts, etc.)
 
 ### `rump.configure(options)`
 Redefine options for Rump and Rump modules to follow. Read the documentation
@@ -88,13 +96,6 @@ recommended)
 - `production` focuses on minifications and optimizations for production level
   builds.
 
-#### `options.globs.global` (`[]`)
-These are globs that are to be applied to all Rump modules as an array of
-strings. This is useful if you want to ignore certain files or directories. For
-example, to ignore files in a directory named `prototype`:
-`['!**/prototype{,**/*}']` Use this carefully as too many items will slow down
-builds.
-
 #### `options.paths.source.root` (`'src'`)
 This is the base directory where source code and items are housed for asset
 builds. Rump modules will typically reference files/directories relative to
@@ -107,6 +108,13 @@ considered a volatile directory as it is subject to cleaning on rebuilds. Rump
 modules will typically reference files/directories relative to this path for
 builds. You can specify an absolute path or other relative paths.
 (`'../../build'`)
+
+#### `options.globs.global` (`[]`)
+These are globs that are to be applied to all Rump modules as an array of
+strings. This is useful if you want to ignore certain files or directories. For
+example, to ignore files in a directory named `prototype`:
+`['!**/prototype{,**/*}']` Use this carefully as too many items will slow down
+builds.
 
 ### `rump.configs`
 This will contain references to configurations that are generated either by

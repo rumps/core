@@ -1,8 +1,8 @@
 # Rump
 [![NPM](http://img.shields.io/npm/v/rump.svg?style=flat-square)](https://www.npmjs.org/package/rump)
 ![License](http://img.shields.io/npm/l/rump.svg?style=flat-square)
-![Dependencies](http://img.shields.io/david/rumps/rump.svg?style=flat-square)
-![Peer Dependencies](http://img.shields.io/david/peer/rumps/rump.svg?style=flat-square)
+[![Dependencies](http://img.shields.io/david/rumps/rump.svg?style=flat-square)](https://david-dm.org/rumps/rump)
+[![Peer Dependencies](http://img.shields.io/david/peer/rumps/rump.svg?style=flat-square)](https://david-dm.org/rumps/rump#info=peerDependencies)
 
 
 ## About

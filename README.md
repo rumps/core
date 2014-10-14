@@ -1,4 +1,8 @@
-# Rump [![](http://img.shields.io/npm/v/rump.svg?style=flat-square)](https://www.npmjs.org/package/rump) ![](http://img.shields.io/npm/l/rump.svg?style=flat-square) ![](http://img.shields.io/david/rumps/rump.svg?style=flat-square) ![](http://img.shields.io/david/peer/rumps/rump.svg?style=flat-square)
+# Rump
+[![NPM](http://img.shields.io/npm/v/rump.svg?style=flat-square)](https://www.npmjs.org/package/rump)
+![License](http://img.shields.io/npm/l/rump.svg?style=flat-square)
+![Dependencies](http://img.shields.io/david/rumps/rump.svg?style=flat-square)
+![Peer Dependencies](http://img.shields.io/david/peer/rumps/rump.svg?style=flat-square)
 
 ## About
 Rump and its related modules together make a semi-opinionated workflow for

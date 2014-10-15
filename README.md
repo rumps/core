@@ -73,7 +73,7 @@ destination, see `rump.configure()` below. The following tasks are included:
   running the build or watch task. The destination should be considered
   volatile since files on source may be removed.
 - `rump:info` will display information on this and other Rump modules in a
-  readable format.
+  readable format. Rump modules will add to this task (scripts, styles, etc.)
 - `rump:info:core` will display information on the core module, including the
   current environment set.
 - `rump:test` will run all tests once. Rump modules will add to this task.

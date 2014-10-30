@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.2.2
 - Add reconfigure option
 
 #### 0.2.1

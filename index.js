@@ -1,9 +1,11 @@
 'use strict';
 
 var events = require('events');
+var extend = require('extend');
 var path = require('path');
 var configs = require('./configs');
 var rump = module.exports = new events.EventEmitter();
+var lastOptions = {};
 
 rump.autoload = function() {
   var pkg = require(path.resolve('package'));
@@ -32,9 +34,14 @@ rump.addGulpTasks = function() {
 };
 
 rump.configure = function(options) {
+  lastOptions = options || {};
   configs.rebuild(options);
   rump.emit('update:main');
   return rump;
+};
+
+rump.reconfigure = function(options) {
+  rump.configure(extend(true, lastOptions, options));
 };
 
 rump.configs = {

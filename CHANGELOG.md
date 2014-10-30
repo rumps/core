@@ -1,5 +1,8 @@
 # Changelog
 
+#### WIP
+- Add reconfigure option
+
 #### 0.2.1
 - Add version information to info task
 

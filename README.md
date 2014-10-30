@@ -83,8 +83,15 @@ destination, see `rump.configure()` below. The following tasks are included:
 
 ### `rump.configure(options)`
 Redefine options for Rump and Rump modules to follow. Read the documentation
-each Rump module to see what options are available. The following options are
-available alongside default values:
+each Rump module to see what options are available.
+
+### `rump.reconfigure(options)`
+This is the same as `rump.configure()` above. The only difference is this
+preserves configurations from a previous `configure` or `reconfigure` option
+and overrides anything that is specified in `options`.
+
+The following options for `configure`/`reconfigure` are available alongside
+default values:
 
 #### `options.environment` (`process.env.NODE_ENV` or `'development'`)
 This is used by Rump modules to distinguish what kind of build to make.

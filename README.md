@@ -131,6 +131,6 @@ included.
 
 #### `rump.configs.main`
 This contains options with defaults or what has been changed through
-`rump.configure()`. This is used by other Rump modules and typically does not
-need to be modified. (except by Rump modules) If you want to modify just use
-`rump.configure()` instead.
+`rump.configure()` or `rump.reconfigure()`. This is used by other Rump modules
+and typically does not need to be modified. (except by Rump modules) If you
+want to modify just use `rump.configure()` or `rump.reconfigure()` instead.

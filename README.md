@@ -60,35 +60,35 @@ then no error is raised and is skipped.
 Add all tasks from Rump modules to Gulp. If you load other Rump modules after
 calling this, you need to call this again. Read the documentation for each Rump
 module to see which tasks are defined. For information on source and
-destination, see `rump.configure()` below. If you want to change or remove the
-prefix `rump` from the task names see `rump.taskPrefix`/`rump.setTaskPrefix()`
-below. The following tasks are included:
+destination, see `rump.configure()` below. If you want to add a prefix to the
+task names see `rump.taskPrefix`/`rump.setTaskPrefix()` below. The following
+tasks are included:
 
-- `rump:build` will build all assets once from source to destination. Rump
-modules will add to this task. (scripts, styles, etc.)
-- `rump:build:prod` is the same as `rump:build` with `options.environment` set
-to `'production'` for a production build.
-- `rump:watch` will build all assets once from source to destination, then
-monitor for changes and update destination as needed. Rump modules will add to
-this task. (scripts, styles, etc.)
-- `rump:watch:setup` is used to set up for tasks that build continuously, such
-as `rump:watch` and `rump:test:watch`. This is typically used internally and
-has no effect by itself.
-- `rump:watch:prod` is the same as `rump:watch` with `options.environment` set
-to `'production'` for a production build.
-- `rump:clean` will clean the contents of destination. This is invoked when
-running the build or watch task. The destination should be considered volatile
-since files on source may be removed.
-- `rump:info` will display information on this and other Rump modules in a
-readable format. Rump modules will add to this task (scripts, styles, etc.)
-- `rump:info:prod` is the same as `rump:info` with `options.environment` set
-to `'production'` for a production build information.
-- `rump:info:core` will display information on the core module, including the
+- `build` will build all assets once from source to destination. Rump modules
+will add to this task. (scripts, styles, etc.)
+- `build:prod` is the same as `build` with `options.environment` set to
+`'production'` for a production build.
+- `watch` will build all assets once from source to destination, then monitor
+for changes and update destination as needed. Rump modules will add to this
+task. (scripts, styles, etc.)
+- `watch:setup` is used to set up for tasks that build continuously, such as
+`watch` and `test:watch`. This is typically used internally and has no effect
+by itself.
+- `watch:prod` is the same as `watch` with `options.environment` set to
+`'production'` for a production build.
+- `clean` will clean the contents of destination. This is invoked when running
+the build or watch task. The destination should be considered volatile since
+files on source may be removed.
+- `info` will display information on this and other Rump modules in a readable
+format. Rump modules will add to this task (scripts, styles, etc.)
+- `info:prod` is the same as `info` with `options.environment` set to
+`'production'` for a production build information.
+- `info:core` will display information on the core module, including the
 current environment set.
-- `rump:test` will run all tests once. Rump modules will add to this task.
-(scripts, etc.)
-- `rump:test:watch` will run tests continuously, useful for things like TDD.
-Rump modules will add to this task. (scripts, etc.)
+- `test` will run all tests once. Rump modules will add to this task. (scripts,
+etc.)
+- `test:watch` will run tests continuously, useful for things like TDD. Rump
+modules will add to this task. (scripts, etc.)
 
 ### `rump.configure(options)`
 Redefine options for Rump and Rump modules to follow. Read the documentation
@@ -100,10 +100,8 @@ preserves configurations from a previous `configure` or `reconfigure` option
 and overrides anything that is specified in `options`.
 
 ### `rump.taskPrefix = prefix`, `rump.setTaskPrefix(prefix)`
-Change the prefix on Gulp task names. By default it is `'rump'`. (`rump:build`,
-`rump:watch`, etc.) You can change it to something else (`'client'` results in
-`client:build`, `client:watch`, etc.) or even a blank string. (`build`,
-`watch`, etc.)
+Add prefix on Gulp task names. For example, if you set the prefix to `'rump`,
+then the task names will become `rump:build`, `rump:watch`, etc.
 
 The following options for `configure`/`reconfigure` are available alongside
 default values:

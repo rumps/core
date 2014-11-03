@@ -16,8 +16,6 @@ rump.configs = {
   }
 };
 
-rump.taskPrefix = 'rump';
-
 rump.addGulpTasks = function() {
   require('./gulp');
   return rump;

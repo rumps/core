@@ -126,11 +126,11 @@ this path for builds. You can specify an absolute path, use the current
 directory, (`''`) or other relative paths. (`'../../source'`)
 
 #### `options.paths.destination.root` (`'dist'`)
-This is the base directory where assets will be built to. This should be
-considered a volatile directory as it is subject to cleaning on rebuilds. Rump
-modules will typically reference files/directories relative to this path for
-builds. You can specify an absolute path or other relative paths.
-(`'../../build'`)
+This is the base directory where assets will be built to. Rump modules will
+typically reference files/directories relative to this path for builds. You can
+specify an absolute path or other relative paths. (`'../../build'`) **This
+should be considered a volatile directory as it is subject to cleaning on
+rebuilds, so make sure you understand which directory you declare.**
 
 #### `options.globs.global` (`[]`)
 These are globs that are to be applied to all Rump modules as an array of

@@ -1,6 +1,6 @@
 # Changelog
 
-#### WIP
+#### 0.2.3
 - Add option to change task name prefix
 - Add `:prod` tasks for tasks with production
 

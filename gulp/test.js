@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var rump = require('../index');
 
-gulp.task('rump:test', []);
-gulp.task('rump:test:watch', ['rump:watch:setup']);
+gulp.task(rump.taskName('test'), []);
+gulp.task(rump.taskName('test:watch'), [rump.taskName('watch:setup')]);

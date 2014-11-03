@@ -7,6 +7,22 @@ var configs = require('./configs');
 var rump = module.exports = new events.EventEmitter();
 var lastOptions = {};
 
+rump.configs = {
+  get main() {
+    return configs.main;
+  },
+  get watch() {
+    return configs.watch;
+  }
+};
+
+rump.taskPrefix = 'rump';
+
+rump.addGulpTasks = function() {
+  require('./gulp');
+  return rump;
+};
+
 rump.autoload = function() {
   var pkg = require(path.resolve('package'));
   var modules = [].concat(Object.keys(pkg.dependencies || {}),
@@ -28,8 +44,8 @@ rump.autoload = function() {
   return rump;
 };
 
-rump.addGulpTasks = function() {
-  require('./gulp');
+rump.setTaskPrefix = function(taskPrefix) {
+  rump.taskPrefix = taskPrefix;
   return rump;
 };
 
@@ -44,11 +60,12 @@ rump.reconfigure = function(options) {
   rump.configure(extend(true, lastOptions, options));
 };
 
-rump.configs = {
-  get main() {
-    return configs.main;
-  },
-  get watch() {
-    return configs.watch;
-  }
+rump.taskName = function() {
+  return [rump.taskPrefix]
+    .concat(Array.prototype.slice.call(arguments, 0))
+    .filter(function(name) { return typeof name === 'string'; })
+    .join(':')
+    .split(':')
+    .filter(function(name) { return name; })
+    .join(':');
 };

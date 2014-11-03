@@ -1,5 +1,8 @@
 # Changelog
 
+#### WIP
+- Add option to change task name prefix
+
 #### 0.2.2
 - Add reconfigure option
 

@@ -13,3 +13,8 @@ gulp.task(rump.taskName('watch'), [
 gulp.task(rump.taskName('watch:setup'), function() {
   configs.watch = true;
 });
+
+gulp.task(rump.taskName('watch:prod'), [
+  rump.taskName('prod:setup'),
+  rump.taskName('watch')
+]);

@@ -14,3 +14,8 @@ gulp.task(rump.taskName('info:core'), function() {
 });
 
 gulp.task(rump.taskName('info'), [rump.taskName('info:core')]);
+
+gulp.task(rump.taskName('info:prod'), [
+  rump.taskName('prod:setup'),
+  rump.taskName('info')
+]);

@@ -66,17 +66,23 @@ below. The following tasks are included:
 
 - `rump:build` will build all assets once from source to destination. Rump
 modules will add to this task. (scripts, styles, etc.)
+- `rump:build:prod` is the same as `rump:build` with `options.environment` set
+to `'production'` for a production build.
 - `rump:watch` will build all assets once from source to destination, then
 monitor for changes and update destination as needed. Rump modules will add to
 this task. (scripts, styles, etc.)
 - `rump:watch:setup` is used to set up for tasks that build continuously, such
 as `rump:watch` and `rump:test:watch`. This is typically used internally and
 has no effect by itself.
+- `rump:watch:prod` is the same as `rump:watch` with `options.environment` set
+to `'production'` for a production build.
 - `rump:clean` will clean the contents of destination. This is invoked when
 running the build or watch task. The destination should be considered volatile
 since files on source may be removed.
 - `rump:info` will display information on this and other Rump modules in a
 readable format. Rump modules will add to this task (scripts, styles, etc.)
+- `rump:info:prod` is the same as `rump:info` with `options.environment` set
+to `'production'` for a production build information.
 - `rump:info:core` will display information on the core module, including the
 current environment set.
 - `rump:test` will run all tests once. Rump modules will add to this task.

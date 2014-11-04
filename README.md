@@ -101,7 +101,8 @@ and overrides anything that is specified in `options`.
 
 ### `rump.taskPrefix = prefix`, `rump.setTaskPrefix(prefix)`
 Add prefix on Gulp task names. For example, if you set the prefix to `'rump`,
-then the task names will become `rump:build`, `rump:watch`, etc.
+then the task names will become `rump:build`, `rump:watch`, etc. **Set this
+property before invoking** `addGulpTasks()`**.**
 
 The following options for `configure`/`reconfigure` are available alongside
 default values:

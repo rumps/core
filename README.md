@@ -48,6 +48,13 @@ require('rump').addGulpTasks();
 ```
 
 
+## Notes
+For Rump and modules `<1.0.0`, it is strongly recommended to use the same minor
+version. (if using Rump `0.3.1`, the the modules can be `0.3.4`, `0.3.0`, etc.
+but not `0.2.1` or `0.5.1`) In addition, make sure to make use of `npm dedupe`
+to have Rump be in sync when modules make use of it.
+
+
 ## API
 
 ### `rump.autoload()`

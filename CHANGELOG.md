@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.4.0
+- Drop use of `peerDependencies` (use `npm dedupe`)
+
 ### 0.3.0
 - Remove task prefix by default
 

@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.5.0
+- Drop Rump and Gulp dependencies in packages (user use minor version)
+
 ### 0.4.0
 - Drop use of `peerDependencies` (use `npm dedupe`)
 

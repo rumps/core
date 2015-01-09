@@ -1,8 +1,12 @@
 {
-  "node": true,
   "camelcase": true,
   "curly": true,
   "eqeqeq": true,
   "eqnull": true,
+  "freeze": true,
+  "indent": 2,
+  "maxlen": 79,
+  "node": true,
+  "quotmark": "single",
   "unused": true
 }

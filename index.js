@@ -29,7 +29,10 @@ rump.autoload = function() {
                           Object.keys(pkg.devDependencies || {}),
                           Object.keys(pkg.peerDependencies || {}));
 
-  modules.filter(function(mod) {
+  modules.filter(isRumpModule).forEach(require);
+  return rump;
+
+  function isRumpModule(mod) {
     if(/^rump-/.test(mod)) {
       try {
         require.resolve(mod);
@@ -38,10 +41,7 @@ rump.autoload = function() {
       catch(e) {}
     }
     return false;
-  })
-  .forEach(require);
-
-  return rump;
+  }
 };
 
 rump.configure = function(options) {

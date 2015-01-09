@@ -1,5 +1,8 @@
 # Changelog
 
+##### WIP
+- Update `del` and `require-all`
+
 ### 0.5.0
 - Drop Rump and Gulp dependencies in packages (user use minor version)
 

@@ -106,7 +106,7 @@ preserves configurations from a previous `configure` or `reconfigure` option
 and overrides anything that is specified in `options`.
 
 ### `rump.taskPrefix = prefix`, `rump.setTaskPrefix(prefix)`
-Add prefix on Gulp task names. For example, if you set the prefix to `'rump`,
+Add prefix on Gulp task names. For example, if you set the prefix to `rump`,
 then the task names will become `rump:build`, `rump:watch`, etc. **Set this
 property before invoking** `addGulpTasks()`**.**
 
@@ -141,7 +141,7 @@ rebuilds, so make sure you understand which directory you declare.**
 These are globs that are to be applied to all Rump modules as an array of
 strings. This is useful if you want to ignore certain files or directories. For
 example, to ignore files in a directory named `prototype`:
-`['!**/prototype{,**/*}']` Use this carefully as too many items will slow down
+`['!**/prototype/**/*']` Use this carefully as too many items will slow down
 builds.
 
 ### `rump.configs`

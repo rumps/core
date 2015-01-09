@@ -1,6 +1,7 @@
 # Changelog
 
-##### WIP
+### 0.6.0
+- **BREAKING**: Use `addGulpTasks` instead of `taskPrefix`/`setTaskPrefix`
 - Update `del` and `require-all`
 
 ### 0.5.0

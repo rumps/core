@@ -40,7 +40,7 @@ require('rump').autoload().addGulpTasks().configure({
 If you don't want to load all modules and prefer loading your own manually:
 
 ```js
-// Load modules first before calling addGulpTasks or call addGulpTasks again
+// Load modules first before calling addGulpTasks
 require('rump-scripts');
 require('rump-styles');
 require('rump').addGulpTasks();
@@ -62,13 +62,17 @@ in `package.json`. If the module is not available (such as a module in
 `devDependencies` that was not installed because of `npm install --production`)
 then no error is raised and is skipped.
 
-### `rump.addGulpTasks()`
+### `rump.addGulpTasks(options)`
 Add all tasks from Rump modules to Gulp. If you load other Rump modules after
 calling this, you need to call this again. Read the documentation for each Rump
 module to see which tasks are defined. For information on source and
-destination, see `rump.configure()` below. If you want to add a prefix to the
-task names see `rump.taskPrefix`/`rump.setTaskPrefix()` below. The following
-tasks are included:
+destination, see `rump.configure()` below.
+
+#### `options.prefix`
+Add prefix on Gulp task names. For example, if you set the prefix to `'rump'`,
+then the task names will become `rump:build`, `rump:watch`, etc.
+
+The following tasks are included:
 
 - `build` will build all assets once from source to destination. Rump modules
 will add to this task. (scripts, styles, etc.)
@@ -104,11 +108,6 @@ each Rump module to see what options are available.
 This is the same as `rump.configure()` above. The only difference is this
 preserves configurations from a previous `configure` or `reconfigure` option
 and overrides anything that is specified in `options`.
-
-### `rump.taskPrefix = prefix`, `rump.setTaskPrefix(prefix)`
-Add prefix on Gulp task names. For example, if you set the prefix to `rump`,
-then the task names will become `rump:build`, `rump:watch`, etc. **Set this
-property before invoking** `addGulpTasks()`**.**
 
 The following options for `configure`/`reconfigure` are available alongside
 default values:

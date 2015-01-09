@@ -16,7 +16,9 @@ rump.configs = {
   }
 };
 
-rump.addGulpTasks = function() {
+rump.addGulpTasks = function(options) {
+  options = options || {};
+  rump.taskPrefix = options.prefix;
   require('./gulp');
   return rump;
 };
@@ -39,11 +41,6 @@ rump.autoload = function() {
   })
   .forEach(require);
 
-  return rump;
-};
-
-rump.setTaskPrefix = function(taskPrefix) {
-  rump.taskPrefix = taskPrefix;
   return rump;
 };
 

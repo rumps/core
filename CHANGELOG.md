@@ -3,6 +3,7 @@
 ### 0.6.0
 - **BREAKING**: Use `addGulpTasks` instead of `taskPrefix`/`setTaskPrefix`
 - Update `del` and `require-all`
+- Add and set up for `lint:` tasks
 
 ### 0.5.0
 - Drop Rump and Gulp dependencies in packages (user use minor version)

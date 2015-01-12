@@ -96,6 +96,10 @@ format. Rump modules will add to this task (scripts, styles, etc.)
 `'production'` for a production build information.
 - `info:core` will display information on the core module, including the
 current environment set.
+- `lint` will run code through linters once. Rump modules will add to this task. (scripts,
+etc.)
+- `lint:watch` will run code through linters continuously. Rump
+modules will add to this task. (scripts, etc.)
 - `test` will run all tests once. Rump modules will add to this task. (scripts,
 etc.)
 - `test:watch` will run tests continuously, useful for things like TDD. Rump

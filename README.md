@@ -1,7 +1,7 @@
 # Rump
 [![NPM](http://img.shields.io/npm/v/rump.svg?style=flat-square)](https://www.npmjs.org/package/rump)
 ![License](http://img.shields.io/npm/l/rump.svg?style=flat-square)
-![Travis](http://img.shields.io/travis/rumps/rump.svg?style=flat-square)
+[![Travis](http://img.shields.io/travis/rumps/rump.svg?style=flat-square)](https://travis-ci.org/rumps/rump)
 [![Dependencies](http://img.shields.io/david/rumps/rump.svg?style=flat-square)](https://david-dm.org/rumps/rump)
 [![Dev Dependencies](http://img.shields.io/david/dev/rumps/rump.svg?style=flat-square)](https://david-dm.org/rumps/rump#info=devDependencies)
 

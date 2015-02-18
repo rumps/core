@@ -3,14 +3,11 @@
 var assert = require('better-assert');
 var fs = require('fs');
 var gulp = require('gulp');
+var sinon = require('sinon');
 var rump = require('../lib');
 var configs = require('../lib/configs');
 
 describe('rump tasks', function() {
-  before(function() {
-    rump.addGulpTasks({prefix: 'spec'});
-  });
-
   beforeEach(function() {
     rump.configure({
       paths: {
@@ -22,7 +19,11 @@ describe('rump tasks', function() {
     configs.watch = false;
   });
 
-  it('are defined', function() {
+  it('are added and defined', function() {
+    var callback = sinon.spy();
+    rump.on('gulp:main', callback);
+    rump.addGulpTasks({prefix: 'spec'});
+    assert(callback.calledOnce);
     assert(gulp.tasks['spec:build']);
     assert(gulp.tasks['spec:build:prod']);
     assert(gulp.tasks['spec:clean']);

@@ -1,4 +1,7 @@
+sudo: false
 language: node_js
+install:
+  npm update -g npm
 node_js:
   - "0.10"
   - "0.12"

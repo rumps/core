@@ -10,7 +10,7 @@
     "url": "https://github.com/rumps/rump"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "jshint lib test && mocha"
   },
   "main": "./lib",
   "dependencies": {
@@ -22,6 +22,7 @@
   "devDependencies": {
     "better-assert": "^1.0.2",
     "deep-equal": "^1.0.0",
+    "jshint": "^2.6.0",
     "gulp": "^3.8.8",
     "mocha": "^2.1.0",
     "sinon": "^1.12.2"

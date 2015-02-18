@@ -3,6 +3,7 @@
 var assert = require('better-assert');
 var equal = require('deep-equal');
 var extend = require('extend');
+var path = require('path');
 var sinon = require('sinon');
 var rump = require('../lib');
 
@@ -11,6 +12,18 @@ describe('rump', function() {
     delete rump.taskPrefix;
     rump.configure();
     rump.removeAllListeners('update:main');
+  });
+
+  it('.autoload', function() {
+    assert(!require.cache[path.resolve('node_modules/rump-a/index.js')]);
+    assert(!require.cache[path.resolve('node_modules/rump-b/index.js')]);
+    assert(!require.cache[path.resolve('node_modules/rumpc/index.js')]);
+    rump.autoload();
+    assert(require.cache[path.resolve('node_modules/rump-a/index.js')]);
+    assert(require.cache[path.resolve('node_modules/rump-b/index.js')]);
+    assert(!require.cache[path.resolve('node_modules/rumpc/index.js')]);
+    require('rumpc');
+    assert(require.cache[path.resolve('node_modules/rumpc/index.js')]);
   });
 
   it('.configure', function() {

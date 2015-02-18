@@ -25,6 +25,9 @@
     "jshint": "^2.6.0",
     "gulp": "^3.8.8",
     "mocha": "^2.1.0",
-    "sinon": "^1.12.2"
+    "sinon": "^1.12.2",
+    "rump-a": "file:./test/rump-a",
+    "rump-b": "file:./test/rump-b",
+    "rumpc": "file:./test/rumpc"
   }
 }

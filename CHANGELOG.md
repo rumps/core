@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.6.1
+- Emit event for adding Gulp tasks
+- Check for `optionalDependencies` in autoload
+
 ### 0.6.0
 - **BREAKING**: Use `addGulpTasks` instead of `taskPrefix`/`setTaskPrefix`
 - Update `del` and `require-all`

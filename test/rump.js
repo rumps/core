@@ -7,7 +7,7 @@ var sinon = require('sinon');
 var rump = require('../lib');
 
 describe('rump', function() {
-  afterEach(function() {
+  beforeEach(function() {
     delete rump.taskPrefix;
     rump.configure();
     rump.removeAllListeners('update:main');

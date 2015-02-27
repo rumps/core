@@ -1,7 +1,13 @@
 'use strict';
 
-var assert = require('better-assert');
-var fs = require('fs');
+// Temporary fix until old LoDash is updated in some Gulp dependency
+Object.getPrototypeOf.toString = function() {
+  return 'function getPrototypeOf() { [native code] }';
+};
+
+var assert = require('assert');
+var co = require('co');
+var fs = require('mz/fs');
 var gulp = require('gulp');
 var sinon = require('sinon');
 var rump = require('../lib');
@@ -46,14 +52,14 @@ describe('rump tasks', function() {
     assert(configs.watch === true);
   });
 
-  it('cleans build directory', function() {
-    if(!fs.existsSync('tmp')) {
-      fs.mkdirSync('tmp');
+  it('cleans build directory', co.wrap(function*() {
+    if(!yield fs.exists('tmp')) {
+      yield fs.mkdir('tmp');
     }
-    assert(fs.existsSync('tmp'));
+    assert(yield fs.exists('tmp'));
     gulp.start('spec:clean');
-    assert(!fs.existsSync('tmp'));
-  });
+    assert(!yield fs.exists('tmp'));
+  }));
 
   it('handles production', function() {
     assert(rump.configs.main.environment === 'development');

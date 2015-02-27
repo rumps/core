@@ -1,8 +1,7 @@
 'use strict';
 
-var assert = require('better-assert');
+var assert = require('assert');
 var equal = require('deep-equal');
-var extend = require('extend');
 var path = require('path');
 var sinon = require('sinon');
 var rump = require('../lib');
@@ -27,7 +26,7 @@ describe('rump', function() {
   });
 
   it('.configure', function() {
-    var defaultConfig = extend({}, rump.configs.main);
+    var defaultConfig = Object.assign({}, rump.configs.main);
     var callback = sinon.spy();
     rump.on('update:main', callback);
     rump.configure({environment: 'production'});
@@ -39,7 +38,7 @@ describe('rump', function() {
   });
 
   it('.reconfigure', function() {
-    var defaultConfig = extend({}, rump.configs.main);
+    var defaultConfig = Object.assign({}, rump.configs.main);
     var callback = sinon.spy();
     rump.on('update:main', callback);
     rump.reconfigure({environment: 'production'});

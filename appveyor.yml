@@ -7,9 +7,13 @@ environment:
     - nodejs_version: "1"
 
 install:
-  - ps: Install-Product node $env:nodejs_version
-  - npm install -g npm
-  - set PATH=%APPDATA%\npm;%PATH%
+  - ps: >-
+      Install-Product node $env:nodejs_version
+      if($env:nodejs_version -eq "0.10")
+      {
+        npm install -g npm@next
+        set PATH=%APPDATA%\npm;%PATH%
+      }
   - npm install
 
 test_script:

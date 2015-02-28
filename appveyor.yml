@@ -12,7 +12,7 @@ install:
       if($env:nodejs_version -eq "0.10")
       {
         npm install -g npm@next
-        set PATH=%APPDATA%\npm;%PATH%
+        $env:Path = $env:Appdata + "\npm;" + $env:Path
       }
   - npm install
 

@@ -48,8 +48,10 @@ describe('rump tasks', function() {
 
   it('handles watch', function() {
     assert(configs.watch === false);
+    assert(rump.configs.watch === false);
     gulp.start('spec:watch:setup');
     assert(configs.watch === true);
+    assert(rump.configs.watch === true);
   });
 
   it('cleans build directory', co.wrap(function*() {

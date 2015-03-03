@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.6.2
+- Fix watch config exposed
+
 ### 0.6.1
 - Emit event for adding Gulp tasks
 - Check for `optionalDependencies` in autoload

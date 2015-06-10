@@ -55,12 +55,12 @@ describe('rump tasks', function() {
   });
 
   it('cleans build directory', co.wrap(function*() {
-    if(!yield fs.exists('tmp')) {
+    if(!(yield fs.exists('tmp'))) {
       yield fs.mkdir('tmp');
     }
     assert(yield fs.exists('tmp'));
     gulp.start('spec:clean');
-    assert(!yield fs.exists('tmp'));
+    assert(!(yield fs.exists('tmp')));
   }));
 
   it('handles production', function() {

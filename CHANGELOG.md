@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.6.3
+- Update packages
+
 ### 0.6.2
 - Fix watch config exposed
 

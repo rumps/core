@@ -14,8 +14,6 @@
     "prebuild": "[ -d lib ] && trash lib || true",
     "build": "babel src --out-dir lib",
     "coverage": "babel-node node_modules/.bin/isparta cover --report html --report text _mocha -- -R min",
-    "precodecov": "npm run coverage",
-    "codecov": "",
     "lint": "eslint src test",
     "prepublish": "npm run test && npm run build",
     "start": "npm run build",

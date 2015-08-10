@@ -11,12 +11,12 @@
     "url": "https://github.com/rumps/rump"
   },
   "scripts": {
-    "prebuild": "[ -d lib ] && trash lib || true",
-    "build": "babel src --out-dir lib",
+    "precompile": "[ -d lib ] && trash lib || true",
+    "compile": "babel src --out-dir lib",
     "coverage": "babel-node node_modules/.bin/isparta cover --report html --report text _mocha -- -R min",
     "lint": "eslint src test",
-    "prepublish": "npm run test && npm run build",
-    "start": "npm run build",
+    "prepublish": "npm run test && npm run compile",
+    "start": "npm run compile",
     "pretest": "npm run lint",
     "test": "mocha",
     "pretravis": "npm run lint",

@@ -10,9 +10,9 @@ rebuild()
 export default configs
 
 export function rebuild(overrides) {
-  const environment = process.env.NODE_ENV || 'development'
+  const {NODE_ENV = 'development'} = process.env
   configs.main = extend(true, {
-    environment: environment.trim().toLowerCase(),
+    environment: NODE_ENV.trim().toLowerCase(),
     globs: {global: []},
     paths: {
       source: {root: 'src'},

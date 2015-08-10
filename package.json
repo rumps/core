@@ -11,6 +11,9 @@
     "url": "https://github.com/rumps/rump"
   },
   "scripts": {
+    "preci": "npm run lint",
+    "ci": "babel-node node_modules/.bin/isparta cover --report lcovonly _mocha",
+    "postci": "codecov < coverage/lcov.info",
     "precompile": "[ -d lib ] && trash lib || true",
     "compile": "babel src --out-dir lib",
     "coverage": "babel-node node_modules/.bin/isparta cover --report html --report text _mocha -- -R min",
@@ -18,10 +21,7 @@
     "prepublish": "npm run test && npm run compile",
     "start": "npm run compile",
     "pretest": "npm run lint",
-    "test": "mocha",
-    "pretravis": "npm run lint",
-    "travis": "babel-node node_modules/.bin/isparta cover --report lcovonly _mocha",
-    "posttravis": "codecov < coverage/lcov.info"
+    "test": "mocha"
   },
   "dependencies": {
     "chalk": "^1.1.0",

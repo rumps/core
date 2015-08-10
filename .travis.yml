@@ -7,4 +7,4 @@ node_js:
   - "0.10"
   - "0.12"
   - iojs
-script: "npm run travis"
+script: "npm run ci"

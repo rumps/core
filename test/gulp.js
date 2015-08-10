@@ -1,71 +1,77 @@
-'use strict';
+import gulp from 'gulp'
+import timeout from 'timeout-then'
+import configs from '../src/configs'
+import rump from '../src'
+import {exists, mkdir} from 'mz/fs'
+import {spy} from 'sinon'
+import {stripColor} from 'chalk'
 
-// Temporary fix until old LoDash is updated in some Gulp dependency
-Object.getPrototypeOf.toString = function() {
-  return 'function getPrototypeOf() { [native code] }';
-};
+describe('tasks', () => {
+  beforeEach(() => {
+    rump.configure({paths: {destination: {root: 'tmp'}}})
+    rump.removeAllListeners('gulp:main')
+    configs.watch = false
+  })
 
-var assert = require('assert');
-var co = require('co');
-var fs = require('mz/fs');
-var gulp = require('gulp');
-var sinon = require('sinon');
-var rump = require('../lib');
-var configs = require('../lib/configs');
+  it('are added and defined', () => {
+    const callback = spy()
+    rump.on('gulp:main', callback)
+    rump.addGulpTasks({prefix: 'spec'})
+    callback.should.be.calledOnce()
+    gulp.tasks['spec:build'].should.be.ok()
+    gulp.tasks['spec:build:prod'].should.be.ok()
+    gulp.tasks['spec:clean'].should.be.ok()
+    gulp.tasks['spec:prod:setup'].should.be.ok()
+    gulp.tasks['spec:info'].should.be.ok()
+    gulp.tasks['spec:info:core'].should.be.ok()
+    gulp.tasks['spec:info:prod'].should.be.ok()
+    gulp.tasks['spec:lint'].should.be.ok()
+    gulp.tasks['spec:lint:watch'].should.be.ok()
+    gulp.tasks['spec:test'].should.be.ok()
+    gulp.tasks['spec:test:watch'].should.be.ok()
+    gulp.tasks['spec:watch'].should.be.ok()
+    gulp.tasks['spec:watch:setup'].should.be.ok()
+    gulp.tasks['spec:watch:prod'].should.be.ok()
+  })
 
-describe('rump tasks', function() {
-  beforeEach(function() {
-    rump.configure({
-      paths: {
-        destination: {
-          root: 'tmp'
-        }
-      }
-    });
-    configs.watch = false;
-  });
+  it('displays correct information in info task', () => {
+    const logs = [],
+          {log} = console
+    console.log = (...args) => logs.push(stripColor(args.join(' ')))
+    gulp.start('spec:info')
+    console.log = log
+    logs.should.eql([
+      '',
+      '--- Core v0.7.0',
+      'Environment is development',
+      '',
+    ])
+  })
 
-  it('are added and defined', function() {
-    var callback = sinon.spy();
-    rump.on('gulp:main', callback);
-    rump.addGulpTasks({prefix: 'spec'});
-    assert(callback.calledOnce);
-    assert(gulp.tasks['spec:build']);
-    assert(gulp.tasks['spec:build:prod']);
-    assert(gulp.tasks['spec:clean']);
-    assert(gulp.tasks['spec:prod:setup']);
-    assert(gulp.tasks['spec:info']);
-    assert(gulp.tasks['spec:info:core']);
-    assert(gulp.tasks['spec:info:prod']);
-    assert(gulp.tasks['spec:lint']);
-    assert(gulp.tasks['spec:lint:watch']);
-    assert(gulp.tasks['spec:test']);
-    assert(gulp.tasks['spec:test:watch']);
-    assert(gulp.tasks['spec:watch']);
-    assert(gulp.tasks['spec:watch:setup']);
-    assert(gulp.tasks['spec:watch:prod']);
-  });
+  it('handles watch', () => {
+    configs.watch.should.be.false()
+    rump.configs.watch.should.be.false()
+    gulp.start('spec:watch:setup')
+    configs.watch.should.be.true()
+    rump.configs.watch.should.be.true()
+  })
 
-  it('handles watch', function() {
-    assert(configs.watch === false);
-    assert(rump.configs.watch === false);
-    gulp.start('spec:watch:setup');
-    assert(configs.watch === true);
-    assert(rump.configs.watch === true);
-  });
-
-  it('cleans build directory', co.wrap(function*() {
-    if(!(yield fs.exists('tmp'))) {
-      yield fs.mkdir('tmp');
+  it('cleans build directory', async() => {
+    let tmpExists
+    if(!await exists('tmp')) {
+      await mkdir('tmp')
     }
-    assert(yield fs.exists('tmp'));
-    gulp.start('spec:clean');
-    assert(!(yield fs.exists('tmp')));
-  }));
+    tmpExists = await exists('tmp')
+    tmpExists.should.be.true()
+    gulp.start('spec:clean')
+    await timeout(1000)
+    tmpExists = await exists('tmp')
+    tmpExists.should.be.false()
+  })
 
-  it('handles production', function() {
-    assert(rump.configs.main.environment === 'development');
-    gulp.start('spec:prod:setup');
-    assert(rump.configs.main.environment === 'production');
-  });
-});
+  it('handles production', () => {
+    rump.configs.main.environment.should.equal('development')
+    gulp.start('spec:prod:setup')
+    rump.configs.main.environment.should.equal('production')
+  })
+})

@@ -1,1 +1,3 @@
---compilers js:babel/register
+--compilers js:babel/register-without-polyfill
+--require should
+--require should-sinon

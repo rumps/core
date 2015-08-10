@@ -1,0 +1,7 @@
+import './build'
+import './clean'
+import './environment'
+import './info'
+import './lint'
+import './test'
+import './watch'

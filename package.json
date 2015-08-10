@@ -1,36 +1,53 @@
 {
   "name": "rump",
-  "description": "Opinionated flow for assembling client assets",
+  "version": "0.7.0",
   "author": "Juan Placencia",
-  "version": "0.6.2",
+  "description": "Opinionated flow for assembling client assets",
   "license": "MIT",
   "homepage": "https://github.com/rumps/rump",
+  "main": "./lib",
   "repository": {
     "type": "git",
     "url": "https://github.com/rumps/rump"
   },
   "scripts": {
-    "test": "jshint lib test && mocha"
+    "prebuild": "[ -d lib ] && trash lib || true",
+    "build": "babel src --out-dir lib",
+    "coverage": "babel-node node_modules/.bin/isparta cover --report html --report text _mocha -- -R min",
+    "precodecov": "npm run coverage",
+    "codecov": "",
+    "lint": "eslint src test",
+    "prepublish": "npm run test && npm run build",
+    "start": "npm run build",
+    "pretest": "npm run lint",
+    "test": "mocha",
+    "travis": "babel-node node_modules/.bin/isparta cover --report lcovonly _mocha",
+    "posttravis": "codecov < coverage/lcov.info"
   },
-  "main": "./lib",
   "dependencies": {
-    "chalk": "^1.0.0",
-    "del": "^1.1.1",
-    "extend": "^2.0.0",
-    "require-all": "^1.0.0"
+    "chalk": "^1.1.0",
+    "core-js": "^1.0.1",
+    "extend": "^3.0.0",
+    "regenerator": "^0.8.36",
+    "trash": "^1.4.1"
   },
   "devDependencies": {
-    "babel": "^5.5.6",
-    "co": "^4.4.0",
-    "deep-equal": "^1.0.0",
-    "jshint": "^2.6.0",
-    "graceful-fs": "^3.0.5",
-    "gulp": "^3.8.8",
-    "mocha": "^2.1.0",
+    "babel": "^5.8.19",
+    "babel-eslint": "^4.0.5",
+    "codecov.io": "^0.1.5",
+    "eslint": "^1.0.0",
+    "graceful-fs": "^4.1.2",
+    "gulp": "^3.9.0",
+    "isparta": "^3.0.3",
+    "mocha": "^2.2.5",
     "mz": "^2.0.0",
-    "sinon": "^1.12.2",
     "rump-a": "file:./test/rump-a",
     "rump-b": "file:./test/rump-b",
-    "rumpc": "file:./test/rumpc"
+    "rumpc": "file:./test/rumpc",
+    "should": "^7.0.2",
+    "should-sinon": "0.0.3",
+    "sinon": "^1.15.4",
+    "thenify": "^3.1.0",
+    "timeout-then": "^1.0.0"
   }
 }

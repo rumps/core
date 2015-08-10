@@ -1,12 +1,16 @@
 # Changelog
 
-### 0.6.3
+### 0.7.0
+- Use Babel fully for ES2015+
+- Replace JSHint with ESLint
+- Add code coverage support
 - Update packages
+- Rewrite tests with ES2015+ and should.js
 
-### 0.6.2
+#### 0.6.2
 - Fix watch config exposed
 
-### 0.6.1
+#### 0.6.1
 - Emit event for adding Gulp tasks
 - Check for `optionalDependencies` in autoload
 

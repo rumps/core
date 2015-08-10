@@ -7,7 +7,7 @@
 <br>
 [![Travis](http://img.shields.io/travis/rumps/rump.svg?style=flat-square&label=travis)](https://travis-ci.org/rumps/rump)
 [![Appveyor](http://img.shields.io/appveyor/ci/jupl/rump.svg?style=flat-square&label=appveyor)](https://ci.appveyor.com/project/jupl/rump)
-[![Codecov](http://img.shields.io/codecov/rumps/rump.svg?style=flat-square)](https://travis-ci.org/rumps/rump)
+[![Codecov](http://img.shields.io/codecov/c/github/rumps/rump.svg?style=flat-square)](https://codecov.io/github/rumps/rump?view=all)
 
 
 ## About

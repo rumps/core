@@ -19,6 +19,7 @@
     "start": "npm run build",
     "pretest": "npm run lint",
     "test": "mocha",
+    "pretravis": "npm run lint",
     "travis": "babel-node node_modules/.bin/isparta cover --report lcovonly _mocha",
     "posttravis": "codecov < coverage/lcov.info"
   },

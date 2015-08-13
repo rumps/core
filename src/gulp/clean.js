@@ -1,12 +1,12 @@
 import gulp from 'gulp'
 import thenify from 'thenify'
-import delWithCallback from 'del'
+import trashWithCallback from 'trash'
 import rump from '..'
 
 const name = ::rump.taskName,
       task = ::gulp.task,
-      del = thenify(delWithCallback)
+      trash = thenify(trashWithCallback)
 
 task(name('clean'), async() => {
-  await del([rump.configs.main.paths.destination.root])
+  await trash([rump.configs.main.paths.destination.root])
 })

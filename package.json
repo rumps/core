@@ -18,7 +18,7 @@
     "compile": "babel src --out-dir lib",
     "coverage": "babel-node node_modules/.bin/isparta cover --report html --report text _mocha -- -R min",
     "lint": "eslint src test",
-    "prepublish": "npm run test && npm run compile",
+    "prepublish": "npm run compile",
     "start": "npm run compile",
     "pretest": "npm run lint",
     "test": "mocha"
@@ -26,9 +26,9 @@
   "dependencies": {
     "chalk": "^1.1.0",
     "core-js": "^1.0.1",
-    "del": "^1.2.1",
     "extend": "^3.0.0",
-    "regenerator": "^0.8.36"
+    "regenerator": "^0.8.36",
+    "trash": "^2.0.0"
   },
   "devDependencies": {
     "babel": "^5.8.19",
@@ -47,7 +47,6 @@
     "should-sinon": "0.0.3",
     "sinon": "^1.15.4",
     "thenify": "^3.1.0",
-    "timeout-then": "^1.0.0",
-    "trash": "^2.0.0"
+    "timeout-then": "^1.0.0"
   }
 }

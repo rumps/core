@@ -19,6 +19,6 @@ install:
 test_script:
   - node --version
   - npm --version
-  - npm run ciwin
+  - npm test
 
 build: off

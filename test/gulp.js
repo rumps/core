@@ -42,7 +42,7 @@ describe('tasks', () => {
     console.log = log
     logs.should.eql([
       '',
-      '--- Core v0.7.0',
+      '--- Core v0.7.1',
       'Environment is development',
       '',
     ])

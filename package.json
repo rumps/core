@@ -1,6 +1,6 @@
 {
   "name": "rump",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "author": "Juan Placencia",
   "description": "Opinionated flow for assembling client assets",
   "license": "MIT",
@@ -27,6 +27,7 @@
     "core-js": "^1.0.1",
     "extend": "^3.0.0",
     "regenerator": "^0.8.36",
+    "thenify": "^3.1.0",
     "trash": "^2.0.0"
   },
   "devDependencies": {
@@ -45,7 +46,6 @@
     "should": "^7.0.2",
     "should-sinon": "0.0.3",
     "sinon": "^1.15.4",
-    "thenify": "^3.1.0",
     "timeout-then": "^1.0.0"
   }
 }

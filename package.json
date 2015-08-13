@@ -19,7 +19,6 @@
     "coverage": "babel-node node_modules/.bin/isparta cover --report html --report text _mocha -- -R min",
     "lint": "eslint src test",
     "prepublish": "npm run compile",
-    "start": "npm run compile",
     "pretest": "npm run lint",
     "test": "mocha"
   },

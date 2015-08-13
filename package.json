@@ -14,6 +14,8 @@
     "preci": "npm run lint",
     "ci": "babel-node node_modules/.bin/isparta cover --report lcovonly _mocha",
     "postci": "codecov < coverage/lcov.info",
+    "ciwin": "babel-node node_modules/.bin/isparta.cmd cover --report lcovonly _mocha",
+    "postciwin": "codecov < coverage/lcov.info",
     "precompile": "[ -d lib ] && trash lib || true",
     "compile": "babel src --out-dir lib",
     "coverage": "babel-node node_modules/.bin/isparta cover --report html --report text _mocha -- -R min",

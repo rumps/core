@@ -1,8 +1,13 @@
 import should from 'should'
+import thenify from 'thenify'
+import trashWithCallback from 'trash'
 import rump from '../src'
 import {EventEmitter} from 'events'
+import {exists} from 'mz/fs'
 import {resolve} from 'path'
 import {spy} from 'sinon'
+
+const trash = thenify(trashWithCallback)
 
 describe('rump', () => {
   beforeEach(() => {
@@ -15,16 +20,19 @@ describe('rump', () => {
     rump.should.be.an.instanceof(EventEmitter)
   })
 
-  it('.autoload', () => {
+  it('.autoload', async() => {
     const module1 = resolve('node_modules/rump-a/index.js'),
           module2 = resolve('node_modules/rump-b/index.js'),
           module3 = resolve('node_modules/rumpc/index.js')
     should(require.cache[module1]).not.be.ok()
     should(require.cache[module2]).not.be.ok()
     should(require.cache[module3]).not.be.ok()
+    if(await exists('node_modules/rump-b')) {
+      await trash(['node_modules/rump-b'])
+    }
     rump.autoload()
     should(require.cache[module1]).be.ok()
-    should(require.cache[module2]).be.ok()
+    should(require.cache[module2]).not.be.ok()
     should(require.cache[module3]).not.be.ok()
     require('rumpc')
     should(require.cache[module3]).be.ok()

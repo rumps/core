@@ -31,7 +31,7 @@ examples.
 You can easily start by creating a `gulpfile.js` file with the following:
 
 ```js
-require('rump').autoload().addGulpTasks();
+require('rump').autoload().addGulpTasks()
 ```
 
 This will load all other Rump modules defined in `package.json` and add tasks
@@ -40,16 +40,16 @@ to Gulp. If you want to overwrite some configurations:
 ```js
 require('rump').autoload().addGulpTasks().configure({
   ...
-});
+})
 ```
 
 If you don't want to load all modules and prefer loading your own manually:
 
 ```js
 // Load modules first before calling addGulpTasks
-require('rump-scripts');
-require('rump-styles');
-require('rump').addGulpTasks();
+require('rump-scripts')
+require('rump-styles')
+require('rump').addGulpTasks()
 ```
 
 

@@ -4,11 +4,11 @@
   "author": "Juan Placencia",
   "description": "Opinionated flow for assembling client assets",
   "license": "MIT",
-  "homepage": "https://github.com/rumps/rump",
+  "homepage": "https://github.com/rumps/core",
   "main": "./lib",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rumps/rump"
+    "url": "https://github.com/rumps/core"
   },
   "scripts": {
     "preci": "npm run lint",

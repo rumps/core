@@ -9,13 +9,12 @@ import {stripColor} from 'chalk'
 describe('tasks', () => {
   beforeEach(() => {
     rump.configure({paths: {destination: {root: 'tmp'}}})
-    rump.events.removeAllListeners('gulp:main')
     configs.watch = false
   })
 
   it('are added and defined', () => {
     const callback = spy()
-    rump.events.on('gulp:main', callback)
+    rump.on('gulp:main', callback)
     rump.addGulpTasks({prefix: 'spec'})
     callback.should.be.calledOnce()
     gulp.tasks['spec:build'].should.be.ok()
@@ -42,7 +41,7 @@ describe('tasks', () => {
     console.log = log
     logs.should.eql([
       '',
-      '--- Core v0.7.2',
+      '--- Core v0.7.3',
       'Environment is development',
       '',
     ])

@@ -1,6 +1,6 @@
 {
   "name": "rump",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "author": "Juan Placencia",
   "description": "Opinionated flow for assembling client assets",
   "license": "MIT",

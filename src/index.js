@@ -6,22 +6,22 @@ import {resolve} from 'path'
 
 const lastOptionsKey = Symbol('lastOptions')
 
-class Rump extends EventEmitter {
+class Rump {
   configs = {
     get main() { return configs.main },
     get watch() { return configs.watch },
   }
+  events = new EventEmitter()
   taskPrefix = ''
 
-  constructor(...args) {
-    super(...args)
+  constructor() {
     this[lastOptionsKey] = {}
   }
 
   addGulpTasks(options = {}) {
     this.taskPrefix = options.prefix
     require('./gulp')
-    this.emit('gulp:main', options)
+    this.events.emit('gulp:main', options)
     return this
   }
 
@@ -43,7 +43,7 @@ class Rump extends EventEmitter {
   configure(options) {
     this[lastOptionsKey] = extend(true, {}, options)
     rebuild(options)
-    this.emit('update:main')
+    this.events.emit('update:main')
     return this
   }
 

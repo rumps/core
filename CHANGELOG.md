@@ -1,9 +1,6 @@
 # Changelog
 
-#### 0.7.2
-- **BREAKING** Do not inherit from `EventEmitter`
-
-#### 0.7.1
+#### 0.7.3
 - Move `thenify` to dependencies
 
 ### 0.7.0

@@ -2,7 +2,6 @@ import should from 'should'
 import thenify from 'thenify'
 import trashWithCallback from 'trash'
 import rump from '../src'
-import {EventEmitter} from 'events'
 import {exists} from 'mz/fs'
 import {resolve} from 'path'
 import {spy} from 'sinon'
@@ -13,11 +12,7 @@ describe('rump', () => {
   beforeEach(() => {
     delete rump.taskPrefix
     rump.configure()
-    rump.removeAllListeners('update:main')
-  })
-
-  it('', () => {
-    rump.should.be.an.instanceof(EventEmitter)
+    rump.events.removeAllListeners('update:main')
   })
 
   it('.autoload', async() => {
@@ -41,7 +36,7 @@ describe('rump', () => {
   it('.configure', () => {
     const callback = spy(),
           defaultConfig = {...rump.configs.main}
-    rump.on('update:main', callback)
+    rump.events.on('update:main', callback)
     rump.configure.should.be.a.Function()
     rump.configure({environment: 'production'})
     callback.should.be.calledOnce()
@@ -55,7 +50,7 @@ describe('rump', () => {
     const callback = spy(),
           defaultConfig1 = {...rump.configs.main}
     let defaultConfig2 = null
-    rump.on('update:main', callback)
+    rump.events.on('update:main', callback)
     rump.reconfigure.should.be.a.Function()
     rump.reconfigure({environment: 'production'})
     callback.should.be.calledOnce()

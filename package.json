@@ -15,7 +15,7 @@
     "ci": "babel-node node_modules/.bin/isparta cover --report lcovonly _mocha",
     "postci": "codecov < coverage/lcov.info",
     "precompile": "[ -d lib ] && trash lib || true",
-    "compile": "babel src --out-dir lib",
+    "compile": "babel src --out-dir lib --source-maps=inline",
     "coverage": "babel-node node_modules/.bin/isparta cover --report html --report text _mocha -- -R min",
     "lint": "eslint src test",
     "pub": "npm run test && npm run compile && npm publish",

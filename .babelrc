@@ -1,5 +1,4 @@
 {
   "only": ["src", "test"],
-  "sourceMaps": "inline",
   "stage": 0
 }

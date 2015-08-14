@@ -1,5 +1,8 @@
 # Changelog
 
+#### 0.7.4
+- Build code with source maps inline
+
 #### 0.7.3
 - Move `thenify` to dependencies
 

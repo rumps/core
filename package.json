@@ -12,8 +12,8 @@
   },
   "scripts": {
     "preci": "npm run lint",
-    "ci": "babel-node node_modules/.bin/isparta cover --report lcovonly _mocha",
-    "postci": "codecov < coverage/lcov.info",
+    "ci": "babel-node node_modules/.bin/isparta cover --report json _mocha",
+    "postci": "codecov < coverage/coverage.json",
     "precompile": "[ -d lib ] && trash lib || true",
     "compile": "babel src --out-dir lib --source-maps=inline",
     "coverage": "babel-node node_modules/.bin/isparta cover --report html --report text _mocha -- -R min",

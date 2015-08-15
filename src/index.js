@@ -13,8 +13,8 @@ class Rump extends EventEmitter {
   }
   taskPrefix = ''
 
-  constructor(...args) {
-    super(...args)
+  constructor() {
+    super()
     this[lastOptionsKey] = {}
   }
 

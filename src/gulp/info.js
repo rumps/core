@@ -4,10 +4,10 @@ import {green, magenta} from 'chalk'
 import {version} from '../../package'
 
 const name = ::rump.taskName,
-      task = ::gulp.task,
-      {environment} = rump.configs.main
+      task = ::gulp.task
 
 task(name('info:core'), () => {
+  const {environment} = rump.configs.main
   console.log()
   console.log(magenta(`--- Core v${version}`))
   console.log(`Environment is ${green(environment)}`)

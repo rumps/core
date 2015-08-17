@@ -1,5 +1,8 @@
 # Changelog
 
+#### 0.7.5
+- Minor improvements and fixes
+
 #### 0.7.4
 - Build code with source maps inline
 

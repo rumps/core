@@ -4,6 +4,4 @@ import rump from '..'
 const name = ::rump.taskName,
       task = ::gulp.task
 
-task(name('prod:setup'), () => {
-  rump.reconfigure({environment: 'production'})
-})
+task(name('prod:setup'), () => rump.reconfigure({environment: 'production'}))

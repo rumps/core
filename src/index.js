@@ -48,7 +48,7 @@ class Rump extends EventEmitter {
   }
 
   reconfigure(options) {
-    this.configure(extend(true, this[lastOptionsKey], options))
+    return this.configure(extend(true, this[lastOptionsKey], options))
   }
 
   taskName(...args) {

@@ -5,8 +5,4 @@ const name = ::rump.taskName,
       task = ::gulp.task
 
 task(name('build'), [name('clean')])
-
-task(name('build:prod'), [
-  name('prod:setup'),
-  name('build'),
-])
+task(name('build:prod'), [name('prod:setup'), name('build')])

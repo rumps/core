@@ -15,5 +15,4 @@ task(name('info:core'), () => {
 })
 
 task(name('info'), [name('info:core')])
-
 task(name('info:prod'), [name('prod:setup'), name('info')])

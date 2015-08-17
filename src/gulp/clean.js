@@ -7,6 +7,4 @@ const name = ::rump.taskName,
       task = ::gulp.task,
       trash = thenify(trashWithCallback)
 
-task(name('clean'), async() => {
-  await trash([rump.configs.main.paths.destination.root])
-})
+task(name('clean'), () => trash([rump.configs.main.paths.destination.root]))

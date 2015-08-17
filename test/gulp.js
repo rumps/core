@@ -36,15 +36,29 @@ describe('tasks', () => {
   it('displays correct information in info task', () => {
     const logs = [],
           {log} = console
-    console.log = (...args) => logs.push(stripColor(args.join(' ')))
+    console.log = newLog
     gulp.start('spec:info')
     console.log = log
     logs.should.eql([
       '',
-      '--- Core v0.7.4',
+      '--- Core v0.7.5',
       'Environment is development',
       '',
     ])
+    logs.length = 0
+    console.log = newLog
+    gulp.start('spec:info:prod')
+    console.log = log
+    logs.should.eql([
+      '',
+      '--- Core v0.7.5',
+      'Environment is production',
+      '',
+    ])
+
+    function newLog(...args) {
+      logs.push(stripColor(args.join(' ')))
+    }
   })
 
   it('handles watch', () => {

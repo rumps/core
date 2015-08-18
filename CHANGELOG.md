@@ -1,5 +1,8 @@
 # Changelog
 
+#### 0.7.6
+- Use `del` instead of `trash` until series is supported in Gulp
+
 #### 0.7.5
 - Minor improvements and fixes
 

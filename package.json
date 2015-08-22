@@ -30,6 +30,7 @@
   "devDependencies": {
     "babel": "^5.8.19",
     "babel-eslint": "^4.0.5",
+    "bluebird": "^2.9.34",
     "codecov.io": "^0.1.5",
     "eslint": "^1.0.0",
     "graceful-fs": "^4.1.2",

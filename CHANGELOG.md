@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.8.0
+- Make use of `babel-runtime`
+
 #### 0.7.6
 - Use `del` instead of `trash` until series is supported in Gulp
 

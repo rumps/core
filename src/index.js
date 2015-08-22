@@ -1,4 +1,3 @@
-import './polyfill'
 import configs, {rebuild} from './configs'
 import extend from 'extend'
 import {EventEmitter} from 'events'

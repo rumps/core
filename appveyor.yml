@@ -15,10 +15,11 @@ install:
         $env:Path = "${env:Appdata}\npm;${env:Path}"
       }
   - npm install
-
-test_script:
   - node --version
   - npm --version
+
+test_script:
   - npm test
+  - npm run codecov
 
 build: off

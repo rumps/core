@@ -1,6 +1,6 @@
 {
   "name": "rump",
-  "version": "0.7.6",
+  "version": "0.8.0",
   "author": "Juan Placencia",
   "description": "Opinionated flow for assembling client assets",
   "license": "MIT",
@@ -11,27 +11,26 @@
     "url": "https://github.com/rumps/core"
   },
   "scripts": {
-    "preci": "npm run lint",
-    "ci": "babel-node node_modules/.bin/isparta cover --report json _mocha",
-    "postci": "codecov < coverage/coverage.json",
+    "codecov": "npm run coverage",
+    "postcodecov": "codecov < coverage/coverage.json",
     "precompile": "[ -d lib ] && trash lib || true",
     "compile": "babel src --out-dir lib --source-maps=inline",
-    "coverage": "babel-node node_modules/.bin/isparta cover --report html --report text _mocha -- -R min",
+    "coverage": "babel-node node_modules/isparta/bin/isparta cover --report json --report html --report text node_modules/mocha/bin/_mocha -- -R min",
     "lint": "eslint src test",
     "pub": "npm run test && npm run compile && npm publish",
     "pretest": "npm run lint",
     "test": "mocha"
   },
   "dependencies": {
+    "babel-runtime": "^5.8.20",
     "chalk": "^1.1.0",
-    "core-js": "^1.0.1",
     "del": "^1.2.1",
-    "extend": "^3.0.0",
-    "regenerator": "^0.8.36"
+    "extend": "^3.0.0"
   },
   "devDependencies": {
     "babel": "^5.8.19",
     "babel-eslint": "^4.0.5",
+    "bluebird": "^2.9.34",
     "codecov.io": "^0.1.5",
     "eslint": "^1.0.0",
     "graceful-fs": "^4.1.2",

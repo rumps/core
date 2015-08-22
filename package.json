@@ -6,6 +6,10 @@
   "license": "MIT",
   "homepage": "https://github.com/rumps/core",
   "main": "./lib",
+  "keywords": [
+    "gulp",
+    "rump"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/rumps/core"

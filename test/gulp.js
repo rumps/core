@@ -6,9 +6,11 @@ import {exists, mkdir} from 'mz/fs'
 import {spy} from 'sinon'
 import {stripColor} from 'chalk'
 
-describe('tasks', () => {
+describe('tasks', function() {
+  this.timeout(0)
+
   beforeEach(() => {
-    rump.configure({paths: {destination: {root: 'tmp'}}})
+    rump.configure({clean: true, paths: {destination: {root: 'tmp'}}})
     configs.watch = false
   })
 
@@ -20,6 +22,7 @@ describe('tasks', () => {
     gulp.tasks['spec:build'].should.be.ok()
     gulp.tasks['spec:build:prod'].should.be.ok()
     gulp.tasks['spec:clean'].should.be.ok()
+    gulp.tasks['spec:clean:safe'].should.be.ok()
     gulp.tasks['spec:prod:setup'].should.be.ok()
     gulp.tasks['spec:info'].should.be.ok()
     gulp.tasks['spec:info:core'].should.be.ok()
@@ -41,7 +44,19 @@ describe('tasks', () => {
     console.log = log
     logs.should.eql([
       '',
-      '--- Core v0.8.0',
+      '--- Core v0.8.1',
+      'Environment is development',
+      'tmp will be cleaned',
+      '',
+    ])
+    logs.length = 0
+    console.log = newLog
+    rump.reconfigure({clean: false})
+    gulp.start('spec:info')
+    console.log = log
+    logs.should.eql([
+      '',
+      '--- Core v0.8.1',
       'Environment is development',
       '',
     ])
@@ -51,7 +66,7 @@ describe('tasks', () => {
     console.log = log
     logs.should.eql([
       '',
-      '--- Core v0.8.0',
+      '--- Core v0.8.1',
       'Environment is production',
       '',
     ])
@@ -74,8 +89,21 @@ describe('tasks', () => {
     if(!await exists('tmp')) {
       await mkdir('tmp')
     }
+
     tmpExists = await exists('tmp')
     tmpExists.should.be.true()
+    gulp.start('spec:clean:safe')
+    await timeout(1000)
+    tmpExists = await exists('tmp')
+    tmpExists.should.be.false()
+
+    await mkdir('tmp')
+    rump.reconfigure({clean: false})
+    gulp.start('spec:clean:safe')
+    await timeout(1000)
+    tmpExists = await exists('tmp')
+    tmpExists.should.be.true()
+
     gulp.start('spec:clean')
     await timeout(1000)
     tmpExists = await exists('tmp')

@@ -127,7 +127,7 @@ etc.)
 modules will add to this task. (scripts, etc.)
 
 ### `rump.configure(options)`
-Redefine options for Rump and Rump modules to follow. Read the documentation
+Redefine options for Rump and Rump modules to follow. Read the documentation of
 each Rump module to see what options are available.
 
 ### `rump.reconfigure(options)`
@@ -137,6 +137,10 @@ and overrides anything that is specified in `options`.
 
 The following options for `configure`/`reconfigure` are available alongside
 default values:
+
+#### `options.clean` (`true`)
+This will automatically clean the destination folder when a build or watch is
+to be done. If set to `false` then no clean is automatically done.
 
 #### `options.environment` (`process.env.NODE_ENV` or `'development'`)
 This is used by Rump modules to distinguish what kind of build to make.

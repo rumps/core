@@ -19,7 +19,13 @@ describe('rump.configs', () => {
       rump.configs.main
         .should.be.an.Object()
         .which.is.exactly(configs.main)
-        .and.has.keys('environment', 'globs', 'paths')
+        .and.has.keys('clean', 'environment', 'globs', 'paths')
+    })
+
+    it('.clean', () => {
+      rump.configs.main.clean
+        .should.be.a.Boolean()
+        .which.is.true()
     })
 
     it('.environment', () => {

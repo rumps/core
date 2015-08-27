@@ -1,6 +1,6 @@
 {
   "name": "rump",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "author": "Juan Placencia",
   "description": "Opinionated flow for assembling client assets",
   "license": "MIT",
@@ -10,6 +10,10 @@
     "type": "git",
     "url": "https://github.com/rumps/core"
   },
+  "keywords": [
+    "gulp",
+    "rump"
+  ],
   "scripts": {
     "codecov": "npm run coverage",
     "postcodecov": "codecov < coverage/coverage.json",

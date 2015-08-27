@@ -105,9 +105,12 @@ task. (scripts, styles, etc.)
 by itself.
 - `watch:prod` is the same as `watch` with `options.environment` set to
 `'production'` for a production build.
-- `clean` will clean the contents of destination. This is invoked when running
-the build or watch task. The destination should be considered volatile since
-files on source may be removed.
+- `clean` will clean the contents of destination. If used the destination
+should be considered volatile since files on source may be removed.
+- `clean:safe` will clean the contents of destination with respect to
+`options.clean`. This is invoked when running the build or watch task. If used
+the destination should be considered volatile since files on source may be
+removed.
 - `info` will display information on this and other Rump modules in a readable
 format. Rump modules will add to this task (scripts, styles, etc.)
 - `info:prod` is the same as `info` with `options.environment` set to
@@ -124,7 +127,7 @@ etc.)
 modules will add to this task. (scripts, etc.)
 
 ### `rump.configure(options)`
-Redefine options for Rump and Rump modules to follow. Read the documentation
+Redefine options for Rump and Rump modules to follow. Read the documentation of
 each Rump module to see what options are available.
 
 ### `rump.reconfigure(options)`
@@ -134,6 +137,10 @@ and overrides anything that is specified in `options`.
 
 The following options for `configure`/`reconfigure` are available alongside
 default values:
+
+#### `options.clean` (`true`)
+This will automatically clean the destination folder when a build or watch is
+to be done. If set to `false` then no clean is automatically done.
 
 #### `options.environment` (`process.env.NODE_ENV` or `'development'`)
 This is used by Rump modules to distinguish what kind of build to make.

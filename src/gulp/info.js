@@ -1,16 +1,20 @@
 import gulp from 'gulp'
 import rump from '..'
-import {green, magenta} from 'chalk'
+import {green, magenta, yellow} from 'chalk'
 import {version} from '../../package'
 
 const name = ::rump.taskName,
-      task = ::gulp.task
+      task = ::gulp.task,
+      {configs} = rump
 
 task(name('info:core'), () => {
-  const {environment} = rump.configs.main
+  const {clean, environment, paths} = configs.main
   console.log()
   console.log(magenta(`--- Core v${version}`))
   console.log(`Environment is ${green(environment)}`)
+  if(clean) {
+    console.log(`${yellow(paths.destination.root)} will be cleaned`)
+  }
   console.log()
 })
 

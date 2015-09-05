@@ -1,3 +1,4 @@
+/* eslint max-nested-callbacks:[2,6] */
 import configs from '../src/configs'
 import rump from '../src'
 

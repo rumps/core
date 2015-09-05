@@ -2,8 +2,8 @@ import gulp from 'gulp'
 import configs from '../configs'
 import rump from '..'
 
-const name = ::rump.taskName,
-      task = ::gulp.task
+const name = ::rump.taskName
+const task = ::gulp.task
 
 task(name('watch'), [name('clean:safe'), name('watch:setup')])
 task(name('watch:prod'), [name('prod:setup'), name('watch')])

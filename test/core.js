@@ -15,9 +15,9 @@ describe('rump', () => {
   })
 
   it('.autoload', async() => {
-    const module1 = resolve('node_modules/rump-a/index.js'),
-          module2 = resolve('node_modules/rump-b/index.js'),
-          module3 = resolve('node_modules/rumpc/index.js')
+    const module1 = resolve('node_modules/rump-a/index.js')
+    const module2 = resolve('node_modules/rump-b/index.js')
+    const module3 = resolve('node_modules/rumpc/index.js')
     should(require.cache[module1]).not.be.ok()
     should(require.cache[module2]).not.be.ok()
     should(require.cache[module3]).not.be.ok()
@@ -33,8 +33,8 @@ describe('rump', () => {
   })
 
   it('.configure', () => {
-    const callback = spy(),
-          defaultConfig = {...rump.configs.main}
+    const callback = spy()
+    const defaultConfig = {...rump.configs.main}
     rump.on('update:main', callback)
     rump.configure.should.be.a.Function()
     rump.configure({environment: 'production'})
@@ -46,8 +46,8 @@ describe('rump', () => {
   })
 
   it('.reconfigure', () => {
-    const callback = spy(),
-          defaultConfig1 = {...rump.configs.main}
+    const callback = spy()
+    const defaultConfig1 = {...rump.configs.main}
     let defaultConfig2 = null
     rump.on('update:main', callback)
     rump.reconfigure.should.be.a.Function()

@@ -1,5 +1,8 @@
 # Changelog
 
+#### 0.8.2
+- Update dependencies
+
 #### 0.8.1
 - Add task to clean with respect to user config
 

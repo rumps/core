@@ -44,7 +44,7 @@ describe('tasks', function describeTasks() {
     console.log = log
     logs.should.eql([
       '',
-      '--- Core v0.8.1',
+      '--- Core v0.8.2',
       'Environment is development',
       'tmp will be cleaned',
       '',
@@ -56,7 +56,7 @@ describe('tasks', function describeTasks() {
     console.log = log
     logs.should.eql([
       '',
-      '--- Core v0.8.1',
+      '--- Core v0.8.2',
       'Environment is development',
       '',
     ])
@@ -66,7 +66,7 @@ describe('tasks', function describeTasks() {
     console.log = log
     logs.should.eql([
       '',
-      '--- Core v0.8.1',
+      '--- Core v0.8.2',
       'Environment is production',
       '',
     ])

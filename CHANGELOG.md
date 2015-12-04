@@ -1,5 +1,10 @@
 # Changelog
 
+#### 0.8.3
+- Update dependencies
+- `mocha` -> `ava`
+- `isparta` -> `nyc`
+
 #### 0.8.2
 - Update dependencies
 

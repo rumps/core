@@ -1,4 +1,5 @@
 /lib
+.nyc_output
 tmp
 
 # Created by https://www.gitignore.io

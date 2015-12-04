@@ -1,3 +1,0 @@
---compilers js:babel/register-without-polyfill
---require should
---require should-sinon

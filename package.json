@@ -1,11 +1,12 @@
 {
   "name": "rump",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "author": "Juan Placencia",
   "description": "Opinionated flow for assembling client assets",
   "license": "MIT",
   "homepage": "https://github.com/rumps/core",
   "main": "./lib",
+  "jsnext:main": "./src",
   "repository": "rumps/core",
   "keywords": [
     "gulp",
@@ -16,11 +17,11 @@
     "postcodecov": "codecov < coverage/coverage.json",
     "precompile": "[ -d lib ] && trash lib || true",
     "compile": "babel src --out-dir lib --source-maps=inline",
-    "coverage": "babel-node node_modules/isparta/bin/isparta cover --report json --report html --report text node_modules/mocha/bin/_mocha -- -R min",
+    "coverage": "nyc --reporter=json --reporter=html --reporter=text npm test",
     "lint": "eslint src test",
     "pub": "npm run test && npm run compile && npm publish",
     "pretest": "npm run lint",
-    "test": "mocha"
+    "test": "ava"
   },
   "dependencies": {
     "babel-runtime": "^5.8.20",
@@ -29,26 +30,25 @@
     "extend": "^3.0.0"
   },
   "devDependencies": {
+    "ava": "^0.7.0",
     "babel": "^5.8.19",
-    "babel-eslint": "^4.0.5",
-    "bluebird": "^2.9.34",
+    "babel-eslint": "^4.1.6",
+    "bluebird": "^3.0.6",
     "codecov.io": "^0.1.5",
     "eslint": "^1.0.0",
-    "eslint-config-jupl": "^0.2.0",
-    "eslint-plugin-babel": "^2.1.1",
+    "eslint-config-jupl": "^0.2.1",
+    "eslint-plugin-babel": "^3.0.0",
     "graceful-fs": "^4.1.2",
     "gulp": "^3.9.0",
-    "isparta": "^3.0.3",
-    "mocha": "^2.2.5",
     "mz": "^2.0.0",
+    "nyc": "^4.0.1",
     "rump-a": "file:./test/fixtures/rump-a",
     "rump-b": "file:./test/fixtures/rump-b",
     "rumpc": "file:./test/fixtures/rumpc",
     "should": "^7.0.2",
     "should-sinon": "0.0.3",
     "sinon": "^1.15.4",
-    "thenify": "^3.1.0",
     "timeout-then": "^1.0.0",
-    "trash": "^2.0.0"
+    "trash": "^3.4.0"
   }
 }

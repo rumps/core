@@ -17,7 +17,7 @@
     "postcodecov": "codecov < coverage/coverage-final.json",
     "precompile": "[ -d lib ] && trash lib || true",
     "compile": "babel src --out-dir lib --source-maps=inline",
-    "coverage": "nyc --reporter=json --reporter=html --reporter=text npm test",
+    "coverage": "nyc --reporter=json --reporter=html --reporter=text node_modules/ava/cli.js",
     "lint": "eslint src test",
     "pub": "npm run test && npm run compile && npm publish",
     "pretest": "npm run lint",

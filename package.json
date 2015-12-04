@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "codecov": "npm run coverage",
-    "postcodecov": "codecov < coverage/coverage.json",
+    "postcodecov": "codecov < coverage/coverage-final.json",
     "precompile": "[ -d lib ] && trash lib || true",
     "compile": "babel src --out-dir lib --source-maps=inline",
     "coverage": "nyc --reporter=json --reporter=html --reporter=text npm test",

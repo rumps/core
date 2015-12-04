@@ -17,11 +17,11 @@
     "postcodecov": "codecov < coverage/coverage-final.json",
     "precompile": "[ -d lib ] && trash lib || true",
     "compile": "babel src --out-dir lib --source-maps=inline",
-    "coverage": "nyc --reporter=json --reporter=html --reporter=text node_modules/ava/cli.js",
+    "coverage": "nyc --reporter=json --reporter=html --reporter=text node_modules/ava/cli.js --serial",
     "lint": "eslint src test",
     "pub": "npm run test && npm run compile && npm publish",
     "pretest": "npm run lint",
-    "test": "ava"
+    "test": "ava --serial"
   },
   "dependencies": {
     "babel-runtime": "^5.8.20",

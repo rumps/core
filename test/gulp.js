@@ -18,7 +18,7 @@ test.beforeEach(() => {
   configs.watch = false
 })
 
-test.serial('added and defined', () => {
+test('added and defined', () => {
   const callback = spy()
   rump.on('gulp:main', callback)
   rump.addGulpTasks({prefix: 'spec'})
@@ -40,7 +40,7 @@ test.serial('added and defined', () => {
   gulp.tasks['spec:watch:prod'].should.be.ok()
 })
 
-test.serial('display information in info task', () => {
+test('display information in info task', () => {
   const logs = []
   const {log} = console
   console.log = newLog
@@ -80,7 +80,7 @@ test.serial('display information in info task', () => {
   }
 })
 
-test.serial('handle watch', () => {
+test('handle watch', () => {
   configs.watch.should.be.false()
   rump.configs.watch.should.be.false()
   gulp.start('spec:watch:setup')
@@ -88,7 +88,7 @@ test.serial('handle watch', () => {
   rump.configs.watch.should.be.true()
 })
 
-test.serial('clean build directory', async() => {
+test('clean build directory', async() => {
   let tmpExists
   if(!await exists('tmp')) {
     await mkdir('tmp')
@@ -114,7 +114,7 @@ test.serial('clean build directory', async() => {
   tmpExists.should.be.false()
 })
 
-test.serial('handle production', () => {
+test('handle production', () => {
   rump.configs.main.environment.should.equal('development')
   gulp.start('spec:prod:setup')
   rump.configs.main.environment.should.equal('production')
